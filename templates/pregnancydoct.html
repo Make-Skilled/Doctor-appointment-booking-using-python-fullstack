@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pregnancy Doctors Listing</title>
+    <link rel="stylesheet" href="../static/doctlist.css" />
+  </head>
+  <body>
+    <nav>
+      <a href="/homepg">Home</a>
+      <a href="/pharmacy">Pharmacy</a>
+      <a href="/Aboutus">About us</a>
+      <!-- <a href="#doctors">Doctors</a> -->
+      <a href="/Reviews">Reviews</a>
+      <a href="/Contactus">Contact Us</a>
+    </nav>
+
+    <div class="container">
+      <h1>Doctors Available in Complicated Pregnancy</h1>
+
+      <div class="filters">
+        <button>All Filters</button>
+        <select>
+          <option>Sort By : Experience</option>
+          <!-- Other sort options can go here -->
+        </select>
+      </div>
+
+      <div class="doctor-listing">
+        <!-- Doctor 1 -->
+        <div class="doctor-card">
+          <img
+            src="https://png.pngtree.com/png-vector/20240320/ourmid/pngtree-premium-l-female-doctor-on-duty-at-the-hospital-png-image_12016281.png"
+            alt="Dr.Sudha Krishnan"
+          />
+          <h2>Dr.Sudha Krishnan</h2>
+          <p>MBBS,MD,MS Surgeon-Obstetrics</p>
+          <p>8 years experience</p>
+          <p>Available at: KARIMNAGAR APOLLO HOSPITALS</p>
+          <p><a href="#">Distance 15.34kms</a></p>
+          <!-- <button>Book Appointment</button> -->
+          <button>
+            <a href="/appointment" style="color: aliceblue">Book Appointment</a>
+          </button>
+        </div>
+
+        <!-- Doctor 2 -->
+        <div class="doctor-card">
+          <img
+            src="https://png.pngtree.com/png-vector/20240322/ourmid/pngtree-female-person-with-stethoscope-depicting-lady-doctor-png-image_12184971.png
+          "
+            alt="Sravani Peddinti "
+          />
+          <h2>Dr.Sravani Peddinti</h2>
+          <p>MBBS,MS Surgeon-Obstetrics</p>
+          <p>5 years experience</p>
+          <p>Available at:GAJUVAKA APOLLO HOSPITALS</p>
+          <p><a href="#">Distance 20.68kms</a></p>
+          <!-- <button>View Details</button> -->
+          <!-- <button>Book Appointment</button> -->
+          <button>
+            <a href="/appointment" style="color: aliceblue">Book Appointment</a>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="../static/doctlist.js"></script>
+  </body>
+</html>

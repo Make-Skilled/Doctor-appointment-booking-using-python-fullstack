@@ -1,0 +1,272 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #fdfdfd;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: 135deg, #f4f9fae1;
+  border-bottom: 1px solid #f9fafa;
+}
+
+.logo img {
+  height: 40px;
+}
+
+.h3 {
+  font-style: bold;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 50px;
+  padding: 5px;
+  width: 350px;
+}
+
+#search {
+  border: none;
+  outline: none;
+  padding-left: 10px;
+  font-size: 16px;
+  flex-grow: 1;
+  border-radius: 50px;
+}
+
+#search-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+}
+
+#search-btn img {
+  width: 20px;
+  height: 20px;
+}
+
+.user-actions button {
+  background-color: rgb(91, 134, 175);
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+nav {
+  background: linear-gradient(135deg, #5fa3ca95, #2b333d);
+  padding: 15px 0;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+nav a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+nav a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+  color: #ffeb3b;
+}
+
+.consultation-options {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+.consultation-options div {
+  text-align: center;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  width: 40%;
+}
+
+.consultation-options button {
+  margin-top: 10px;
+  background-color: rgb(91, 134, 175);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.specializations {
+  padding: 20px;
+  text-align: center;
+}
+
+.specialization-item {
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  text-align: center;
+  cursor: pointer;
+  background-color: #f9f9f9;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.specialization-item img {
+  width: 100%;
+  height: auto;
+  max-height: 190px;
+}
+
+.specialization-item:hover {
+  background-color: #e9e9e9;
+  transform: scale(1.05);
+}
+
+.specialization-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+  .specialization-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .specialization-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+h2 {
+  text-align: center;
+  margin: 20px 0;
+  font-size: 24px;
+}
+
+.best-practices {
+  padding: 40px 20px;
+  background-color: #fff;
+}
+
+.practices-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.practice-item {
+  text-align: center;
+  width: 180px;
+}
+
+.practice-item img {
+  width: 50px;
+  margin-bottom: 10px;
+}
+
+.practice-item h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.practice-item p {
+  font-size: 14px;
+  color: #666;
+}
+
+@media (max-width: 768px) {
+  .practices-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .practice-item {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+footer.bg-footer {
+  background-color: rgb(91, 134, 175);
+  padding: 40px 0;
+  color: #f1f1f1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+footer .text-light {
+  color: #f1f1f1;
+}
+
+footer a.text-light {
+  color: #f1f1f1;
+  text-decoration: none;
+}
+
+footer a.text-light:hover {
+  color: #a6ba35;
+  text-decoration: underline;
+}
+
+footer h5 {
+  margin-bottom: 20px;
+}
+
+footer hr {
+  border-top: 1px solid #f1f1f1;
+  margin: 20px 0;
+}
+
+footer .row > div {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+footer .list-unstyled li {
+  margin-bottom: 10px;
+}
+
+footer .fa {
+  margin-right: 8px;
+}
+
+@media (max-width: 768px) {
+  footer .row > div {
+    text-align: center;
+  }
+
+  footer .col-lg-4 {
+    margin-bottom: 30px;
+  }
+}

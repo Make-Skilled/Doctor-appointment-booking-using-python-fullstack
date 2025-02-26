@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Doctor Consultation and Best Practices</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-50 text-gray-900">
+    <header class="bg-blue-600 p-4 flex justify-between items-center shadow-lg">
+      <div class="flex items-center gap-3">
+        <img
+          src="https://media.istockphoto.com/id/1279385296/vector/health-and-medical-vector-stock-illustration-design-health-care-illustration.jpg?s=612x612&w=0&k=20&c=H-UmDQnb2wxHrKgpK7Gb4CGciAi_eV5wFnLfa5lozI4="
+          alt="Med Logo"
+          class="w-14 h-14 rounded-full"
+        />
+        <h3 class="text-white text-2xl font-semibold tracking-wide">MEDICOVER</h3>
+      </div>
+      <div class="flex items-center gap-4">
+        <div class="relative">
+          <input
+            type="text"
+            id="search"
+            placeholder="Search..."
+            class="p-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400"
+          />
+          <button id="search-btn" class="absolute right-2 top-2">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/622/622669.png"
+              alt="Search Icon"
+              class="w-5 h-5"
+            />
+          </button>
+        </div>
+        <button class="bg-red-500 hover:bg-red-600 text-white px-5 py-2 rounded-lg transition">
+          <a href="/">Logout</a>
+        </button>
+      </div>
+    </header>
+
+    <nav class="bg-gray-800 text-white p-4 flex justify-center gap-6 shadow-md">
+      <a href="/pharmacy" class="hover:text-gray-300 transition">Pharmacy</a>
+      <a href="/Aboutus" class="hover:text-gray-300 transition">About us</a>
+      <a href="#doctors" class="hover:text-gray-300 transition">Doctors</a>
+      <a href="/Reviews" class="hover:text-gray-300 transition">Reviews</a>
+      <a href="/Contactus" class="hover:text-gray-300 transition">Contact Us</a>
+      <a href="/patientprof1" class="hover:text-gray-300 transition">Profile</a>
+      <a href="/myappointments" class="hover:text-gray-300 transition">My appointments</a>
+    </nav>
+
+    <section class="py-12 px-6">
+      <h3 class="text-3xl font-bold text-center mb-8 text-blue-700">By Specialization</h3>
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+        <a href="/filterdoctors?type=Generalmedicine" class="group flex flex-col items-center bg-white p-5 shadow-lg rounded-xl hover:shadow-xl transition transform hover:scale-105">
+          <img src="https://img.freepik.com/premium-photo/red-stethoscope-with-heart-it_1281144-12400.jpg" class="w-32 h-32 rounded-full" alt="General Medicine" />
+          <span class="mt-3 font-semibold text-lg">General Medicine</span>
+        </a>
+        <a href="/filterdoctors?type=ENT" class="group flex flex-col items-center bg-white p-5 shadow-lg rounded-xl hover:shadow-xl transition transform hover:scale-105">
+          <img src="https://www.sarvadnyahospital.com/wp-content/uploads/2021/01/ent.png" class="w-32 h-32 rounded-full" alt="ENT" />
+          <span class="mt-3 font-semibold text-lg">ENT</span>
+        </a>
+        <a href="/filterdoctors?type=Cardiology" class="group flex flex-col items-center bg-white p-5 shadow-lg rounded-xl hover:shadow-xl transition transform hover:scale-105">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Human_Heart_and_Circulatory_System.png/1280px-Human_Heart_and_Circulatory_System.png" class="w-32 h-32 rounded-full" alt="Cardiology" />
+          <span class="mt-3 font-semibold text-lg">Cardiology</span>
+        </a>
+        <a href="/filterdoctors?type=Pulmonary" class="group flex flex-col items-center bg-white p-5 shadow-lg rounded-xl hover:shadow-xl transition transform hover:scale-105">
+          <img src="https://www.nimshospital.com/assets/img/departments/PULMONOLOGY.png" class="w-32 h-32 rounded-full" alt="Pulmonary Medicine" />
+          <span class="mt-3 font-semibold text-lg">Pulmonary Medicine</span>
+        </a>
+        <a href="/filterdoctors?type=orthopaedics" class="group flex flex-col items-center bg-white p-5 shadow-lg rounded-xl hover:shadow-xl transition transform hover:scale-105">
+          <img src="https://spfort.com/wp-content/uploads/2022/09/md-pic.jpg" class="w-32 h-32 rounded-full" alt="Orthopaedics" />
+          <span class="mt-3 font-semibold text-lg">Orthopaedics</span>
+        </a>
+        <a href="/filterdoctors?type=gynaecology" class="group flex flex-col items-center bg-white p-5 shadow-lg rounded-xl hover:shadow-xl transition transform hover:scale-105">
+          <img src="https://www.yashodahealthcare.com/blogs/wp-content/uploads/2024/01/WhatsApp-Image-2024-01-08-at-18.02.26-1536x864.jpeg" class="w-32 h-32 rounded-full" alt="Gynaecology" />
+          <span class="mt-3 font-semibold text-lg">Gynaecology</span>
+        </a>
+        <a href="/filterdoctors?type=diabetology" class="group flex flex-col items-center bg-white p-5 shadow-lg rounded-xl hover:shadow-xl transition transform hover:scale-105">
+          <img src="https://img.freepik.com/free-photo/high-angle-diabetic-woman-checking-her-glucose-level_23-2150756373.jpg" class="w-32 h-32 rounded-full" alt="Diabetology" />
+          <span class="mt-3 font-semibold text-lg">Diabetology</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="py-12 px-6 bg-white">
+      <div class="max-w-7xl mx-auto">
+        <h2 class="text-3xl font-bold text-center mb-12 text-blue-700">Our Healthcare Services</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="bg-gradient-to-r from-blue-50 to-blue-100 p-6 rounded-xl shadow-lg transform transition hover:scale-105">
+            <img src="https://img.freepik.com/free-photo/doctor-offering-medical-teleconsultation_23-2149328999.jpg" 
+                 class="w-full h-64 object-cover rounded-lg mb-6" 
+                 alt="Online Consultation"/>
+            <h3 class="text-2xl font-semibold mb-4 text-blue-800">Online Consultation</h3>
+            <p class="text-gray-600 mb-4">Connect with experienced doctors from the comfort of your home. Get expert medical advice, prescriptions, and follow-ups online.</p>
+            <button class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition">Book Online Consultation</button>
+          </div>
+          
+          <div class="bg-gradient-to-r from-blue-50 to-blue-100 p-6 rounded-xl shadow-lg transform transition hover:scale-105">
+            <img src="https://img.freepik.com/premium-photo/photo-male-patient-writes-all-details-makes-notes-consultancy-with-doctor-sit-spacious-office_95891-2457.jpg" 
+                 class="w-full h-64 object-cover rounded-lg mb-6" 
+                 alt="In-Person Visit"/>
+            <h3 class="text-2xl font-semibold mb-4 text-blue-800">In-Person Visit</h3>
+            <p class="text-gray-600 mb-4">Visit our clinics for a thorough in-person consultation. Our state-of-the-art facilities ensure the best care for your health.</p>
+            <button class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition">Schedule Clinic Visit</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-12 px-6 bg-gray-50">
+      <div class="max-w-7xl mx-auto">
+        <h2 class="text-3xl font-bold text-center mb-12 text-blue-700">Why Choose MEDICOVER?</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="bg-white p-6 rounded-xl shadow-lg text-center">
+            <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold mb-3">100% Safe & Secure</h3>
+            <p class="text-gray-600">Your health and data are our top priorities. We ensure complete confidentiality and safety.</p>
+          </div>
+          
+          <div class="bg-white p-6 rounded-xl shadow-lg text-center">
+            <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold mb-3">24/7 Availability</h3>
+            <p class="text-gray-600">Access healthcare services round the clock. Our doctors are available when you need them.</p>
+          </div>
+          
+          <div class="bg-white p-6 rounded-xl shadow-lg text-center">
+            <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold mb-3">Affordable Care</h3>
+            <p class="text-gray-600">Quality healthcare at competitive prices. Special discounts on consultations and medications.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="bg-gray-900 text-white py-6 text-center">
+      <p>&copy; 2024 MEDICOVER. All Rights Reserved. | 
+        <a href="#privacy" class="underline hover:text-gray-300 transition">Privacy Policy</a> | 
+        <a href="#terms" class="underline hover:text-gray-300 transition">Terms of Use</a>
+      </p>
+    </footer>
+  </body>
+</html>

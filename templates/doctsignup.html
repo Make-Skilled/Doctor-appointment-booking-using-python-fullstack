@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Doctor Registration</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="flex justify-center items-center h-screen bg-cover bg-center" style="background-image: url('https://w0.peakpx.com/wallpaper/269/270/HD-wallpaper-doctor-motivation-medical-study.jpg');">
+    <div class="bg-white bg-opacity-80 p-8 rounded-lg shadow-lg w-96">
+      <h2 class="text-2xl font-bold text-center text-gray-800 mb-4">Doctor Registration</h2>
+      <form class="space-y-4" action="/doctsignup" method="post">
+        <div>
+          <label class="block text-gray-700 font-semibold">Username</label>
+          <input type="text" name="username" placeholder="Enter username" required class="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-400 focus:outline-none" />
+        </div>
+        
+        <div>
+          <label class="block text-gray-700 font-semibold">Specialization</label>
+          <select name="specialization" required class="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-400 focus:outline-none">
+            <option value="" disabled selected>Select specialization</option>
+            <option value="Generalmedicine">General medicine</option>
+            <option value="ENT">ENT</option>
+            <option value="Cardiology">Cardiology</option>
+            <option value="Pulmonary">Pulmonary</option>
+            <option value="orthopaedics">Orthopaedics</option>
+            <option value="gynaecology">Gynaecology</option>
+            <option value="diabetology">Diabetology</option>
+            <option value="pregnancy">Pregnancy</option>
+            <option value="paediatrics">Paediatrics</option>
+            <option value="dermatologyvenerelogy">Dermatology & Venereology</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-gray-700 font-semibold">Years of Experience</label>
+          <input type="number" name="experience" placeholder="Enter years of experience" required class="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-400 focus:outline-none" />
+        </div>
+
+        <div>
+          <label class="block text-gray-700 font-semibold">Where do you work?</label>
+          <input type="text" name="working" placeholder="Enter hospital/clinic name" required class="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-400 focus:outline-none" />
+        </div>
+
+        <div>
+          <label class="block text-gray-700 font-semibold">Password</label>
+          <input type="password" name="password" placeholder="Enter password" required class="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-400 focus:outline-none" />
+        </div>
+
+        <div>
+          <label class="block text-gray-700 font-semibold">Profile Image</label>
+          <input type="text" name="image" placeholder="Image URL" required class="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-400 focus:outline-none" />
+        </div>
+
+        <button type="submit" class="w-full bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 rounded-md transition">Register</button>
+      </form>
+      
+      <p class="text-sm text-gray-600">
+        Already have an account?
+        <a href="/doctlogin" class="font-medium text-blue-600 hover:text-blue-500">Doctor login</a>
+      </p>
+      <div class="mt-4 text-center text-red-600">{{status}}</div>
+    </div>
+  </body>
+</html>

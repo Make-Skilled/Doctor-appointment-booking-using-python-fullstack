@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Patient Registration and Consultation</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #d0d7db;
+      }
+
+      .container {
+        display: flex;
+        justify-content: space-around;
+        padding: 20px;
+      }
+
+      .form-container,
+      .doctor-container {
+        background-color: #f4f4f4;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 45%;
+      }
+
+      h2 {
+        text-align: center;
+        color: #333;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 5px;
+        color: #333;
+      }
+
+      input[type="text"],
+      input[type="number"],
+      input[type="date"] {
+        width: 100%;
+        padding: 7px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+
+      .gender-selection {
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 15px;
+      }
+
+      .gender-selection input[type="radio"] {
+        margin-right: 5px;
+      }
+
+      .note {
+        background-color: #f9f9f9;
+        padding: 10px;
+        margin-bottom: 15px;
+        border-left: 4px solid #ffcc00;
+      }
+
+      .note p {
+        margin: 0;
+        font-size: 12px;
+      }
+
+      .btn {
+        display: inline-block;
+        width: 100%;
+        padding: 10px;
+        background-color: rgb(91, 134, 175);
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        text-align: center;
+        cursor: pointer;
+        margin-bottom: 10px;
+      }
+
+      .btn.back {
+        background-color: #6c757d;
+      }
+
+      .doctor-container .btn {
+        width: 100%;
+        margin-bottom: 10px;
+      }
+
+      .date-selector {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 15px;
+      }
+
+      .date,
+      .prev,
+      .next {
+        background: none;
+        border: none;
+        font-size: 1em;
+        padding: 10px;
+        cursor: pointer;
+      }
+
+      .date.active {
+        background-color: rgb(91, 134, 175);
+        color: white;
+        border-radius: 5px;
+      }
+
+      .time-slots h3 {
+        margin: 20px 0 10px;
+        font-size: 1.1em;
+        display: flex;
+        align-items: center;
+      }
+
+      .slots {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+      }
+
+      .slot,
+      .date {
+        background-color: #f1f1f1;
+        border: none;
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .slot:hover,
+      .date:hover,
+      .date.active,
+      .slot.active {
+        background-color: #ddb61ab9;
+        color: white;
+      }
+
+      .continue-booking {
+        display: block;
+        width: 100%;
+        padding: 12px;
+        background-color: rgb(91, 134, 175);
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 1.1em;
+        cursor: pointer;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Add New Patient Form -->
+      <div class="form-container">
+        <h2>Add New Patient</h2>
+        <form id="patientForm" action="/formofpatient" method="post">
+          <label for="fullName">Full Name</label>
+          <input
+            type="text"
+            id="fullName"
+            name="fullName"
+            placeholder="Enter full name"
+            required
+          />
+
+          <div class="gender-selection">
+            <label>Gender</label>
+            <input type="radio" id="male" name="gender" value="Male" required />
+            <label for="male">Male</label>
+
+            <input
+              type="radio"
+              id="female"
+              name="gender"
+              value="Female"
+              required
+            />
+            <label for="female">Female</label>
+
+            <input
+              type="radio"
+              id="others"
+              name="gender"
+              value="Others"
+              required
+            />
+            <label for="others">Others</label>
+          </div>
+
+          <label for="dob">Date of Birth (DD/MM/YYYY)</label>
+          <input type="date" id="dob" name="dob" />
+
+          <label>OR</label>
+
+          <label for="age">Enter age in years</label>
+          <input type="number" id="age" name="age" placeholder="Enter age" />
+
+          <div class="note">
+            <p>Note: All fields are mandatory</p>
+            <p>
+              You can enter either the Date Of Birth or the Age of the patient
+              for their age.
+            </p>
+            <p>
+              To enter the age of an infant, please use the Date of Birth field.
+            </p>
+          </div>
+
+          <button type="submit" class="btn">Save & Continue</button>
+          <button type="button" class="btn back">Back</button>
+        </form>
+      </div>
+
+      <!-- Doctor Consultation Form -->
+      <div class="doctor-container">
+        <h2>Schedule Consultation</h2>
+        <div class="selected-patient">
+          {% if data %}
+          <p>Patient Details: <strong>{{ data['name'] }}</strong></p>
+          <p>Age: <strong>{{ data['age'] }}</strong></p>
+          <p>Gender: <strong>{{ data['gender'] }}</strong></p>
+          {% else %}
+          <p>No patient selected.</p>
+          {% endif %}
+        </div>
+
+        <div class="doctor-details">
+          <p>Consultation Fee: ₹500.00</p>
+        </div>
+
+        <div class="consultation-type">
+          <label>Select Consultation Type</label>
+          <button type="button" class="btn walk-in">
+            Walk-In Consultation
+          </button>
+        </div>
+
+        <div class="date-selector">
+          <button class="prev">&lt;</button>
+          <button class="date">Sun</button>
+          <button class="date">Mon</button>
+          <button class="date">Tue</button>
+          <button class="date">Wed</button>
+          <button class="date">Thu</button>
+          <button class="date">Fri</button>
+          <button class="date">Sat</button>
+          <button class="next">&gt;</button>
+        </div>
+
+        <div class="time-slots">
+          <h3><span class="icon"></span> Morning Slots</h3>
+          <div class="slots morning-slots">
+            <button class="slot">10:00 AM</button>
+            <button class="slot">10:30 AM</button>
+            <button class="slot">11:00 AM</button>
+            <button class="slot">11:30 AM</button>
+          </div>
+
+          <h3><span class="icon"></span> Afternoon Slots</h3>
+          <div class="slots afternoon-slots">
+            <button class="slot">01:00 PM</button>
+            <button class="slot">01:30 PM</button>
+            <button class="slot">02:00 PM</button>
+            <button class="slot">02:30 PM</button>
+            <button class="slot">03:00 PM</button>
+            <button class="slot">03:30 PM</button>
+            <button class="slot">04:00 PM</button>
+            <button class="slot">04:30 PM</button>
+          </div>
+        </div>
+
+        <button class="continue-booking">Confirm Booking</button>
+      </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- Your script code can be included here if needed -->
+  </body>
+</html>

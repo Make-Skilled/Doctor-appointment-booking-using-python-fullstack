@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Patient Review</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-100 text-gray-900">
+    <header class="bg-blue-600 p-4 flex justify-between items-center shadow-lg">
+      <div class="flex items-center gap-3">
+        <img
+          src="https://media.istockphoto.com/id/1279385296/vector/health-and-medical-vector-stock-illustration-design-health-care-illustration.jpg?s=612x612&w=0&k=20&c=H-UmDQnb2wxHrKgpK7Gb4CGciAi_eV5wFnLfa5lozI4="
+          alt="Med Logo"
+          class="w-14 h-14 rounded-full"
+        />
+        <h3 class="text-white text-2xl font-semibold tracking-wide">MEDICOVER</h3>
+      </div>
+      <div class="flex items-center gap-4">
+        <div class="relative">
+          <input
+            type="text"
+            id="search"
+            placeholder="Search..."
+            class="p-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400"
+          />
+          <button id="search-btn" class="absolute right-2 top-2">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/622/622669.png"
+              alt="Search Icon"
+              class="w-5 h-5"
+            />
+          </button>
+        </div>
+        <button class="bg-red-500 hover:bg-red-600 text-white px-5 py-2 rounded-lg transition">
+          <a href="/">Logout</a>
+        </button>
+      </div>
+    </header>
+
+    <nav class="bg-gray-800 text-white p-4 flex justify-center gap-6 shadow-md">
+      <a href="/pharmacy" class="hover:text-gray-300 transition">Pharmacy</a>
+      <a href="/Aboutus" class="hover:text-gray-300 transition">About us</a>
+      <a href="#doctors" class="hover:text-gray-300 transition">Doctors</a>
+      <a href="/Reviews" class="hover:text-gray-300 transition">Reviews</a>
+      <a href="/Contactus" class="hover:text-gray-300 transition">Contact Us</a>
+      <a href="/patientprof1" class="hover:text-gray-300 transition">Profile</a>
+      <a href="/myappointments" class="hover:text-gray-300 transition">My appointments</a>
+    </nav>
+
+    <!-- Feedback Section -->
+    <div class="max-w-4xl mx-auto my-10 p-6 bg-white shadow-lg rounded-lg">
+      <h2 class="text-2xl font-bold text-center text-blue-700 mb-6">
+        Patients' experience is our priority
+      </h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-gray-200 p-4 rounded-lg shadow">
+          <p class="text-gray-700">
+            "Service and treatment is very good. Thank you for taking care of my father."
+          </p>
+          <p class="text-right text-blue-600 font-semibold">- Puja</p>
+        </div>
+        <div class="bg-gray-200 p-4 rounded-lg shadow">
+          <p class="text-gray-700">
+            "I got a fabulous experience in AINU as the doctors and staff are the best."
+          </p>
+          <p class="text-right text-blue-600 font-semibold">- Babaji Ch Parida</p>
+        </div>
+        <div class="bg-gray-200 p-4 rounded-lg shadow">
+          <p class="text-gray-700">
+            "This hospital is very good and faithful. This is rare one in the city."
+          </p>
+          <p class="text-right text-blue-600 font-semibold">- Karan Chouhan</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Rating Section -->
+    <div class="max-w-3xl mx-auto my-10 p-6 bg-white shadow-lg rounded-lg text-center">
+      <h3 class="text-xl font-semibold text-blue-700">Patients have rated our doctors:</h3>
+      <p class="text-3xl font-bold text-yellow-500 mt-2">4.9/5</p>
+      <div class="flex justify-center text-yellow-400 text-2xl mt-1">
+        ★★★★★
+      </div>
+      <p class="text-gray-600 mt-2">
+        111,874 Verified reviews <br /> Up to 12/10/2024
+      </p>
+
+      <!-- Rating Bars -->
+      <div class="mt-4 space-y-2">
+        <div class="flex items-center">
+          <span class="text-gray-700 w-6 text-right">5</span>
+          <div class="w-full bg-gray-300 h-3 rounded-lg ml-2">
+            <div class="bg-blue-500 h-3 rounded-lg" style="width: 85%"></div>
+          </div>
+        </div>
+        <div class="flex items-center">
+          <span class="text-gray-700 w-6 text-right">4</span>
+          <div class="w-full bg-gray-300 h-3 rounded-lg ml-2">
+            <div class="bg-green-500 h-3 rounded-lg" style="width: 10%"></div>
+          </div>
+        </div>
+        <div class="flex items-center">
+          <span class="text-gray-700 w-6 text-right">3</span>
+          <div class="w-full bg-gray-300 h-3 rounded-lg ml-2">
+            <div class="bg-yellow-500 h-3 rounded-lg" style="width: 3%"></div>
+          </div>
+        </div>
+        <div class="flex items-center">
+          <span class="text-gray-700 w-6 text-right">2</span>
+          <div class="w-full bg-gray-300 h-3 rounded-lg ml-2">
+            <div class="bg-orange-500 h-3 rounded-lg" style="width: 1%"></div>
+          </div>
+        </div>
+        <div class="flex items-center">
+          <span class="text-gray-700 w-6 text-right">1</span>
+          <div class="w-full bg-gray-300 h-3 rounded-lg ml-2">
+            <div class="bg-red-500 h-3 rounded-lg" style="width: 1%"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white text-center py-4">
+      <p>&copy; 2024 MEDICOVER. All Rights Reserved.</p>
+    </footer>
+  </body>
+</html>

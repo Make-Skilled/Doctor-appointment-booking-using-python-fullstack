@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Doctor's Home Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-50">
+    <!-- Header Section -->
+    <header class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-6 px-4 shadow-lg">
+      <div class="container mx-auto">
+        <h1 class="text-3xl font-bold text-center">Welcome to Your Dashboard</h1>
+      </div>
+    </header>
+
+    <!-- Main Content Section -->
+    <div class="container mx-auto px-4 py-8">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+        <!-- Doctor's Profile Card -->
+        <div class="md:col-span-4 bg-white rounded-xl shadow-lg p-6 transform transition-all duration-300 hover:shadow-xl">
+          <div class="flex flex-col items-center">
+            <img
+              src="{{data['image_url']}}"
+              alt="Doctor's Image"
+              class="w-48 h-48 rounded-full object-cover shadow-md mb-4"
+            />
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">Dr. {{ data['username'] }}</h2>
+            <div class="w-full space-y-3">
+              <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                <span class="text-gray-600 font-medium">Specialization</span>
+                <span class="text-blue-600 font-semibold">{{ data['specialization'] }}</span>
+              </div>
+              <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                <span class="text-gray-600 font-medium">Experience</span>
+                <span class="text-blue-600 font-semibold">{{ data['experience'] }} Years</span>
+              </div>
+              <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                <span class="text-gray-600 font-medium">Workplace</span>
+                <span class="text-blue-600 font-semibold">{{ data['working'] }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Appointment Section -->
+        <div class="md:col-span-8">
+          <div class="bg-white rounded-xl shadow-lg p-6">
+            <h3 class="text-2xl font-bold text-gray-800 mb-6">Pending Appointments</h3>
+            <div class="space-y-4">
+              {% for i in data1 %}
+              <div class="bg-gray-50 rounded-lg p-6 transform transition-all duration-300 hover:shadow-md">
+                <div class="flex justify-between items-start mb-4">
+                  <div>
+                    <h4 class="text-lg font-semibold text-gray-800">{{i['bookedby']}}</h4>
+                    <p class="text-gray-600">{{i['ad']}}, {{i['at']}}</p>
+                  </div>
+                  <span class="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm font-medium">Pending</span>
+                </div>
+                <p class="text-gray-700 mb-4">
+                  <span class="font-medium">Reason for Visit:</span> {{i['reason']}}
+                </p>
+                <div class="flex space-x-3">
+                  <a href="/acceptappointment?id={{i['_id']}}" class="flex-1">
+                    <button class="w-full py-2 px-4 bg-green-600 text-white font-medium rounded-lg hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition-all duration-200">
+                      Accept
+                    </button>
+                  </a>
+                  <a href="/rejectappointment?id={{i['_id']}}" class="flex-1">
+                    <button class="w-full py-2 px-4 bg-red-600 text-white font-medium rounded-lg hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 transition-all duration-200">
+                      Reject
+                    </button>
+                  </a>
+                </div>
+              </div>
+              {% endfor %}
+              {% if not data1 %}
+              <div class="text-center py-8">
+                <p class="text-gray-500">No pending appointments at the moment</p>
+              </div>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
