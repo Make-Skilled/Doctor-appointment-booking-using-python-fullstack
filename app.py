@@ -138,9 +138,7 @@ def doctlogin():
   if (doctor):
     if doctor['password']==b:
       session['username']=a
-      u=doctors.find_one({"username":a})
-      x=appointments.find({"bookeddoctor":a})
-      return render_template('docthmpg.html',data=u,data1=x)
+      return redirect(url_for("doctordashboard"))
   return render_template('doctlogin.html',status='invalid credential')
 
 # pac profile
@@ -222,7 +220,9 @@ def accapp():
   appointments.update_one({"_id":ObjectId(x)},{"$set":{"status":"Accepted"}})
   u=doctors.find_one({"username":session['username']})
   x=appointments.find({"bookeddoctor":session['username'],"status":"pending"})
-  return render_template('docthmpg.html',data=u,data1=x)
+  return redirect(url_for("doctordashboard"))
+
+
 
 @app.route("/rejectappointment")
 def rejapp():
@@ -230,8 +230,24 @@ def rejapp():
   appointments.update_one({"_id":ObjectId(x)},{"$set":{"status":"Rejected"}})
   u=doctors.find_one({"username":session['username']})
   x=appointments.find({"bookeddoctor":session['username'],"status":"pending"})
-  return render_template('docthmpg.html',data=u,data1=x)
-  
+  return redirect(url_for("doctordashboard"))
+
+@app.route("/doctordashboard")
+def doctordashboard():
+    if 'username' not in session:
+        return redirect(url_for("doctlogin"))
+
+    doctor_username = session['username']
+    doctor_appointments = list(appointments.find({"bookeddoctor": doctor_username}))
+    
+    # Convert ObjectId to string for JSON serialization
+    for appointment in doctor_appointments:
+        appointment['_id'] = str(appointment['_id'])
+
+    data=doctors.find_one({"username":doctor_username})
+    data1=doctor_appointments
+    
+    return render_template('docthmpg.html',data=data,data1=data1)
 
 if __name__=="__main__":
   app.run(port=2761,debug=True)
